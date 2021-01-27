@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>
+    <span *ngIf="errorModalType"><mat-icon color="warn">error</mat-icon></span>
+    <span *ngIf="!errorModalType"><mat-icon color="primary">done</mat-icon></span>
+</h1>
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Ok</button>
+</div>

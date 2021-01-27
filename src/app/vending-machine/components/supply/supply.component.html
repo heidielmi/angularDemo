@@ -1,0 +1,14 @@
+<div class ="form-container">
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>how many cans do you want to supply?</mat-label>
+            <input matInput [formControl]="qty" required>
+            <mat-error *ngIf="qty.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+    </p>
+
+
+  
+  <p> <button  mat-raised-button color="primary" (click)="supply()">Supply</button></p>
+ 
+</div>

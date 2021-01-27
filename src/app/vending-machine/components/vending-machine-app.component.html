@@ -1,0 +1,36 @@
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer #sidenav class="sidenav mat-elevation-z10" 
+  [mode]="isSmallScreen? 'over': 'side'"
+  [opened]= "!isSmallScreen">
+  <mat-toolbar color="primary" class="sidenav-toolbar">
+    <a matLine [routerLink]='["/"]'>
+        <mat-icon > local_drink</mat-icon></a>
+    
+  </mat-toolbar>
+  <mat-nav-list>
+    <mat-list-item >
+       <a matLine [routerLink]= '["/vendingmachine/supply"]' >
+         Supply</a>
+    </mat-list-item>
+
+    <mat-list-item >
+        <a matLine [routerLink]= '["/vendingmachine/purchase"]' >
+          Purchase</a>
+     </mat-list-item>
+  </mat-nav-list>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <!-- <app-toolbar (toggleSidebar)="sidenav.toggle()"></app-toolbar> -->
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="toolbar-icon" (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+        </button>
+      <span>Vending Machine</span>
+    </mat-toolbar>
+
+    <div class= "wrapper">
+        <router-outlet></router-outlet>
+     </div>
+
+</div>
+</mat-drawer-container>

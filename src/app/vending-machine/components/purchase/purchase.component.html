@@ -1,0 +1,22 @@
+<div class ="form-container">
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>how many cans do you want to purchase?</mat-label>
+            <input matInput [formControl]="qty" required>
+            <mat-error *ngIf="qty.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+    </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput type="amount" [formControl]="amount" required>
+        <span matPrefix>$&nbsp;</span>
+         <mat-error *ngIf="amount.invalid">{{getErrorMessage()}}</mat-error> 
+      </mat-form-field>
+  </p>
+  
+  <p> <button  mat-raised-button color="primary" (click)="purchase()">Purchase</button></p>
+ 
+</div>
+

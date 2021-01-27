@@ -20,8 +20,8 @@ export class SupplyComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   supply() {
-    debugger;
     const qty = Number(this.qty.value);
     this.inventorySrv.addSupply(qty);
     this.openDialog(`Resupplied with ${qty} can(s)` , modalType.confirmation);

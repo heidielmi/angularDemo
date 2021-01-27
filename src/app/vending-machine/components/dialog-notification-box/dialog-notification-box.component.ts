@@ -14,7 +14,7 @@ export class DialogNotificationBoxComponent implements OnInit {
   type: string;
   message: string;
   errorModalType = false;
-  constructor( private dialogRef: MatDialogRef<DialogNotificationBoxComponent>,
+  constructor( 
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {

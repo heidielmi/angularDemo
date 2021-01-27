@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { AppConfig } from "src/app/shared/services/app-config.service";
 import { DecreaseSupply, IncreaseSupply } from "./supply.actions";
 
 export class SupplyStateModel {
@@ -14,7 +15,8 @@ export class SupplyStateModel {
 })
 @Injectable()
 export class SupplyState {
-    constructor() { }
+    constructor() {
+     }
 
     @Selector()
     static getSupplies(state: SupplyStateModel) {

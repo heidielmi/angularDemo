@@ -1,6 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { AppConfig } from 'src/app/shared/services/app-config.service';
 import { IPurchase, purchaseStatus } from '../models/purchase.model';
 import { DecreaseSupply } from '../state/supply.actions';
 import { InventoryService } from './inventory.service';
@@ -10,9 +11,12 @@ import { InventoryService } from './inventory.service';
 })
 export class PurchaseService {
 
-  private initialSupply = 1;
-  private costForCan = 1.20;
-  constructor(private inventoryService: InventoryService) { }
+  costForCan: number;
+  constructor(private inventoryService: InventoryService) { 
+    if (AppConfig && AppConfig.settings && AppConfig.settings.vendingMachine) {
+      this.costForCan = AppConfig.settings.vendingMachine.costPerCan;
+    }
+  }
 
   calculatePayment(amount: number, qty: number): IPurchase {
     const change = amount - (qty * this.costForCan);

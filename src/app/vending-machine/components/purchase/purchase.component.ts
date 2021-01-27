@@ -30,12 +30,10 @@ export class PurchaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSupplies$.subscribe((supplies$: number) => {
-     debugger;
      this.availableSupplies = supplies$;
     });
   }
   purchase() {
-    debugger;
     const qty = Number(this.qty.value);
     const amount = Number(this.amount.value);
     const purchaseResult = this.purchaseCalculation(amount, qty);
@@ -51,6 +49,7 @@ export class PurchaseComponent implements OnInit {
 
 
   }
+  
   purchaseCalculation(amount: number, qty: number): IPurchase {
     const fundCalculationResult = this.purchaseSrv.checkSufficientFund(amount, qty);
     const supplyCalculationResult = this.inventorySrv.checkStockAvailibility(qty, this.availableSupplies, amount);
@@ -67,8 +66,9 @@ export class PurchaseComponent implements OnInit {
       return fundCalculationResult;
      }
   }
+
   openDialog(msg: string, modaltype: modalType): void {
-    const dialogRef = this.dialog.open(DialogNotificationBoxComponent, {
+    this.dialog.open(DialogNotificationBoxComponent, {
       width: '250px',
       data: {message: msg, type: modaltype}
     });
